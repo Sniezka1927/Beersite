@@ -26,6 +26,18 @@ const DetailsPage = () => {
 
   console.log(beer);
   //   console.log(beer.method.mash_temp);
+  if (beer === undefined) {
+    return (
+      <React.Fragment>
+        <Header />
+        <Container style={{ textAlign: "center" }}>
+          <Content>
+            Looks like you went too far! There's not that much beers around.
+          </Content>
+        </Container>
+      </React.Fragment>
+    );
+  }
   return (
     <React.Fragment>
       <Header />
@@ -41,6 +53,10 @@ const DetailsPage = () => {
             <Container style={{ textAlign: "left" }}>
               <Row>
                 <Col xs={6}>
+                  <br />
+                  <br />
+                  <br />
+                  {/* That looks kinda strange but works pretty nice :D */}
                   <Row>
                     <Col>
                       <Prefix>Name: </Prefix>
@@ -65,19 +81,12 @@ const DetailsPage = () => {
                       <Content>{beer.contributed_by}</Content>
                     </Col>
                   </Row>
-                  <Row>
-                    <Col>
-                      <Prefix>Description: </Prefix>
-                      <br />
-                      <Content>{beer.description}</Content>
-                    </Col>
-                  </Row>
                 </Col>
                 <Col
                   xs={6}
                   style={{
                     display: "flex",
-                    alignItems: "center",
+                    alignItems: "flex-start",
                     justifyContent: "center",
                   }}
                 >
@@ -88,7 +97,13 @@ const DetailsPage = () => {
                   ></img>
                 </Col>
               </Row>
-
+              <Row>
+                <Col>
+                  <Prefix>Description: </Prefix>
+                  <br />
+                  <Content>{beer.description}</Content>
+                </Col>
+              </Row>
               <Row>
                 <Col>
                   <Prefix>Food Pairing: </Prefix>
@@ -220,12 +235,6 @@ const DetailsPage = () => {
                 <Col>
                   <Prefix>ph: </Prefix>
                   <Content>{beer.ph}</Content>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Prefix>ebc: </Prefix>
-                  <Content>{beer.ebc}</Content>
                 </Col>
               </Row>
               <Row>
