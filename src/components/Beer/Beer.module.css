@@ -1,0 +1,38 @@
+.beerContainer {
+  margin: 1rem;
+  border: 1px solid #c4c2c2;
+  padding: 0.5rem;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0 1rem;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #c4c2c2;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+.beerContainer:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.image {
+  object-fit: contain;
+
+  width: 100%;
+  height: 10rem;
+}

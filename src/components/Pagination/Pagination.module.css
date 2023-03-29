@@ -1,0 +1,8 @@
+.currentPage {
+  font-size: 150%;
+  padding: 10px 15px;
+}
+
+.arrow {
+  cursor: pointer;
+}
