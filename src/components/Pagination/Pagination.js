@@ -4,13 +4,13 @@ import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 import styles from "./Pagination.module.css";
 const Pagination = (props) => {
   return (
-    <Row>
+    <Row style={{ margin: "1em" }}>
       <Col>
         <BiLeftArrow
           onClick={() => {
             props.onArrowClick("left");
           }}
-          size={"1.25rem"}
+          size={"1.5em"}
           className={styles.arrow}
         />
         <span className={styles.currentPage}>{props.curPage}</span>
@@ -18,7 +18,7 @@ const Pagination = (props) => {
           onClick={() => {
             props.onArrowClick("right");
           }}
-          size={"1.25rem"}
+          size={"1.5em"}
           className={styles.arrow}
         />
       </Col>
