@@ -23,7 +23,6 @@ const HomePage = () => {
 
   const onArrowClick = (type) => {
     if (type === "right") {
-      console.log("right");
       setCurrentPage((previousState) => (previousState += 1));
     } else if (type === "left" && currentPage > 1) {
       setCurrentPage((previousState) => (previousState -= 1));

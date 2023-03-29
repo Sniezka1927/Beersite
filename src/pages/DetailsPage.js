@@ -11,21 +11,17 @@ const DetailsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [beer, setBeer] = useState({});
   useEffect(() => {
-    console.log(beerId);
     (async function () {
       setIsLoading(true);
       const response = await fetch(
         `https://api.punkapi.com/v2/beers/${beerId}`
       );
       const data = await response.json();
-      console.log(data);
       setBeer(data[0]);
       setIsLoading(false);
     })();
   }, [beerId]);
 
-  console.log(beer);
-  //   console.log(beer.method.mash_temp);
   if (beer === undefined) {
     return (
       <React.Fragment>
@@ -110,7 +106,7 @@ const DetailsPage = () => {
                   <br />
                   {beer.food_pairing.map((f) => {
                     return (
-                      <Content>
+                      <Content key={~~(Math.random() * 3303)}>
                         {f} <br />
                       </Content>
                     );
@@ -150,7 +146,7 @@ const DetailsPage = () => {
                   <br />
                   {beer.ingredients.hops.map((ing) => {
                     return (
-                      <React.Fragment>
+                      <React.Fragment key={~~(Math.random() * 3303)}>
                         <Content>
                           {ing.name} - {ing.amount.value}
                           {ing.amount.unit}, Attribute: {ing.attribute}, add on{" "}
@@ -165,7 +161,7 @@ const DetailsPage = () => {
                   <br />
                   {beer.ingredients.malt.map((m) => {
                     return (
-                      <React.Fragment>
+                      <React.Fragment key={~~(Math.random() * 3303)}>
                         <Content>
                           {m.name} - {m.amount.value}
                           {m.amount.unit}
@@ -192,7 +188,7 @@ const DetailsPage = () => {
                   <Content>
                     {beer.method.mash_temp.map((m) => {
                       return (
-                        <React.Fragment>
+                        <React.Fragment key={~~(Math.random() * 3303)}>
                           {m.temp.value}
                           {m.temp.unit}
                           {m.duration !== null
